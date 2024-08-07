@@ -27,23 +27,23 @@ int	invalid_arg(int c, char **v)
 	j = 1;
 	if (c != 5 && c != 6)
 		return (0);
+	while (v[j] != NULL)
+	{
+		i = 0;
+		while (v[j][i] != '\0')
+		{
+			if (v[j][i] < '0' || v[j][i] > '9')
+				return (0);
+			i++;
+		}
+		j++;
+	}
 	if (ft_atoi(v[1]) <= 0 || ft_atoi(v[1]) > 200 || ft_atoi(v[2]) <= 0
 		|| ft_atoi(v[3]) <= 0 || ft_atoi(v[4]) <= 0)
 		return (0);
 	if (c == 6)
 		if (ft_atoi(v[5]) <= 0)
 			return (0);
-	while (v[j] != NULL)
-	{
-		i = 0;
-		while (v[j][i] != '\0')
-		{
-			if (v[j][i] < '0' && v[j][i] > '9')
-				return (0);
-			i++;
-		}
-		j++;
-	}
 	return (1);
 }
 
